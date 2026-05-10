@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+:root {
+  --bg-base: #0a0c10;
+  --bg-card: #12171f;
+  --text-main: #ffffff;
+  --text-dim: #94a3b8;
+  --accent: #00e5ff;
+  --accent-glow: rgba(0, 229, 255, 0.3);
+  --border: rgba(148, 163, 184, 0.1);
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Efecto de cristal vivo para el Slider */
+.slider-card {
+  background: linear-gradient(165deg, var(--bg-card), var(--bg-base));
+  border: 1px solid var(--border);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.slider-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+/* Placeholder de foto con respiración */
+.photo-placeholder {
+  background: linear-gradient(45deg, #1e293b, #0f172a);
+  border: 2px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, var(--accent-glow));
+  opacity: 0.4;
+}
+
+/* Botón con energía */
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), #00b8cc);
+  color: #00363d;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 11px;
+  padding: 12px 28px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 0 10px 20px -10px var(--accent);
+}
+
+.label-caps {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Ocultar scrollbar del slider */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.education-node {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid var(--border);
+}
+
+.education-node::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-base);
+  border: 2px solid var(--accent);
+}
+
+/* Contenedor del Timeline */
+.timeline-container {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+/* La línea principal (Bus de datos) */
+.timeline-line {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, 
+    var(--accent) 0%, 
+    var(--deep-cyan) 50%, 
+    rgba(59, 73, 76, 0.2) 100%);
+}
+
+/* El nodo activo con pulso */
+.timeline-dot {
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  background: var(--bg-obsidian);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+}
+
+.timeline-dot::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--accent);
+}
+
+.timeline-dot.pulse::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Tarjeta de evento */
+.timeline-event {
+  margin-bottom: 4rem;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.timeline-event:hover {
+  transform: translateX(10px);
+}
+
+.tech-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+  background: rgba(0, 229, 255, 0.05);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.tech-icon {
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.tech-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-silver);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--accent);
+  background: rgba(0, 229, 255, 0.03);
+}
+
+/* Botón de descarga con efecto pulso */
+.btn-download {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-download:hover {
+  background: var(--accent);
+  color: #00363d;
+  box-shadow: 0 0 30px var(--accent-glow);
+}

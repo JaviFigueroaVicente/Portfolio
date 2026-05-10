@@ -1,0 +1,29 @@
+# Dependencias de Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Entorno virtual de Python
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+
+# IDEs y Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema
+.DS_Store
+thumbs.db
+
+CLAUDE.md
