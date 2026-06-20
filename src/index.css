@@ -18,10 +18,29 @@ body {
   overflow-x: hidden;
 }
 
+/* --- MEJORA ESTÉTICA DE TÍTULOS Y TEXTOS --- */
+/* Inyección de profundidad y estética Cyberpunk/Tech refinada a los encabezados principales */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* Efecto de luminiscencia quirúrgica para los títulos destacados en secciones */
+.section-title {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+  background: linear-gradient(180deg, var(--text-main) 60%, rgba(255, 255, 255, 0.7));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Efecto de cristal vivo para el Slider */
 .slider-card {
   background: linear-gradient(165deg, var(--bg-card), var(--bg-base));
   border: 1px solid var(--border);
+  /* Easing de aceleración suavizada (Cubic-Bezier) para simular físicas de muelle */
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -58,6 +77,13 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   box-shadow: 0 10px 20px -10px var(--accent);
+  /* Transición sutil para el estado hover interactivo */
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -8px var(--accent), 0 0 15px cubic-bezier(0.25, 1, 0.5, 1) var(--accent-glow);
 }
 
 .label-caps {
@@ -152,7 +178,8 @@ body {
 .timeline-event {
   margin-bottom: 4rem;
   position: relative;
-  transition: all 0.4s ease;
+  /* Suavizado de la transición lateral para que no sea abrupta */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .timeline-event:hover {
@@ -224,6 +251,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  /* Easing personalizado para una respuesta elástica táctil de alta fidelidad */
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
   overflow: hidden;
