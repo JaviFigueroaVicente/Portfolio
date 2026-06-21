@@ -136,6 +136,34 @@ export default function App() {
 
   const currentProject = projects[activeIndex];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delay: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20,
+      scale: 0.98
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: [0.16, 1, 0.3, 1] 
+      } 
+    }
+  };
+  
   const sliderVariants = {
     enter: (dir) => ({
       x: dir > 0 ? 150 : -150,
@@ -210,9 +238,7 @@ export default function App() {
             animate="center"
             exit="exit"
             loading="lazy"
-            // Al dispararse el evento nativo de carga completa, ocultamos quirúrgicamente el Spinner
             onLoad={() => setIsImgLoading(false)}
-            // Si cambia la imagen del carrusel, reactivamos de inmediato el estado de carga
             onLoadStart={() => setIsImgLoading(true)}
             transition={{ type: "spring", stiffness: 350, damping: 30 }}
             className="absolute inset-0 w-full h-full object-cover opacity-50 hover:opacity-70 transition-opacity duration-500"
@@ -494,8 +520,7 @@ export default function App() {
                       whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.05)" }}
                       whileTap={{ scale: 0.98 }}
                       className="flex items-center gap-2 px-5 py-3 rounded-lg bg-white/2 border border-white/10 text-white font-mono text-xs hover:border-[--accent] hover:bg-white/5 transition-all duration-300"
-                    >
-                      {/* Nota: Asegura la correcta asignación de la variable global o importación 'github' para la imagen */}
+                    >¡
                       <img src={typeof github !== 'undefined' ? github : ''} className="w-4 h-4" alt="" />
                       REPOSITORIO
                     </motion.a>
@@ -526,8 +551,7 @@ export default function App() {
                           repeatDelay: 0.5 
                         }}
                       />
-                      <span>DEMO WEB</span>
-                      {/* Nota: Asegura la correcta asignación de la variable global o importación 'opennew' para la imagen */}
+                      <span>DEMO WEB</span>¡
                       <img src={typeof opennew !== 'undefined' ? opennew : ''} alt="Open New" />
                     </motion.a>
                   </div>
@@ -744,15 +768,15 @@ export default function App() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={{
-            hidden: {},
+            hidden: { opacity: 0 },
             visible: {
+              opacity: 1,
               transition: {
                 staggerChildren: 0.15 
               }
             }
           }}
         >
-          {/* Cabecera del Stack con revelación de línea fluida */}
           <motion.div 
             variants={{
               hidden: { opacity: 0, x: -15 },
@@ -771,24 +795,15 @@ export default function App() {
           </motion.div>
 
           {/* Grid de Contenedores */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div 
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
             {stack.map((group) => (
               <motion.div 
                 key={group.category} 
-                variants={{
-                  hidden: { opacity: 0, y: 30, x: -10, scale: 0.98 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0, 
-                    x: 0,
-                    scale: 1,
-                    transition: { 
-                      duration: 0.7, 
-                      ease: [0.16, 1, 0.3, 1]
-                    } 
-                  }
-                }}
-                className="recessed-surface p-8 group border border-white/5 hover:border-[--accent] transition-all duration-500"
+                variants={cardVariants}
+                className="recessed-surface p-8 group border border-white/5 hover:border-[--accent] transition-all duration-500 will-change-transform"
               >
                 <div className="flex items-center gap-3 mb-8">
                   <div className="w-1.5 h-3.5 bg-[--accent] rounded-full shadow-[0_0_8px_var(--accent)]"></div>
@@ -800,22 +815,20 @@ export default function App() {
                 <div className="flex flex-wrap gap-3">
                   {group.techs.map((tech) => (
                     <motion.div 
-                      key={tech} 
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                      className="flex items-center gap-2.5 px-3 py-2 bg-white/1 border border-white/5 rounded-lg hover:bg-[--accent]/5 hover:border-[--accent] transition-all group/item"
+                      key={tech}
+                      transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
+                      className="flex items-center gap-2.5 px-3 py-2 bg-white/1 border border-white/5 rounded-lg hover:bg-[--accent]/5 hover:border-[--accent] transition-all duration-200 group/item cursor-default will-change-transform"
                     >
                       {techLogos[tech] ? (
                         <img 
                           src={techLogos[tech]} 
-                          alt={tech} 
-                          className="w-4 h-4 object-contain grayscale-0 md:grayscale md:group-hover/item:grayscale-0 transition-all duration-300" 
+                          alt={tech}
+                          className="w-4 h-4 object-contain grayscale-0 md:grayscale md:group-hover/item:grayscale-0 transition-all duration-200" 
                         />
                       ) : (
                         <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
                       )}
-                      <span className="font-mono text-[11px] text-[--text-dim] group-hover/item:text-white transition-colors">
+                      <span className="font-mono text-[11px] text-[--text-dim] group-hover/item:text-white transition-colors duration-200">
                         {tech}
                       </span>
                     </motion.div>
@@ -823,7 +836,7 @@ export default function App() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.section>
         
         {/* Formación Académica */}
