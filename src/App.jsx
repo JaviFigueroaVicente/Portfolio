@@ -597,7 +597,7 @@ export default function App() {
           >
             <div className="flex flex-col">
               <h2 className="section-title text-3xl md:text-4xl font-black tracking-tight">
-                EXPERIENCIA & SISTEMAS
+                EXPERIENCIA LABORAL
               </h2>
             </div>
             <div className="h-px grow bg-linear-to-r from-white/10 to-transparent"></div>
