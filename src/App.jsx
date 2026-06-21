@@ -520,7 +520,7 @@ export default function App() {
                       whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.05)" }}
                       whileTap={{ scale: 0.98 }}
                       className="flex items-center gap-2 px-5 py-3 rounded-lg bg-white/2 border border-white/10 text-white font-mono text-xs hover:border-[--accent] hover:bg-white/5 transition-all duration-300"
-                    >¡
+                    >
                       <img src={typeof github !== 'undefined' ? github : ''} className="w-4 h-4" alt="" />
                       REPOSITORIO
                     </motion.a>
@@ -551,7 +551,7 @@ export default function App() {
                           repeatDelay: 0.5 
                         }}
                       />
-                      <span>DEMO WEB</span>¡
+                      <span>DEMO WEB</span>
                       <img src={typeof opennew !== 'undefined' ? opennew : ''} alt="Open New" />
                     </motion.a>
                   </div>
