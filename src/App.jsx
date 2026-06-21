@@ -261,7 +261,7 @@ export default function App() {
                 ‹
               </button>
             </div>
-            <div className="absolute inset-y-0 right-3 flex items-center z-20 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
+            <div className="absolute inset-y-0 right-3 flex items-center z-20 opacity-50 group-hover/slider:opacity-100 transition-opacity duration-300">
               <button 
                 onClick={(e) => navigateInner(e, 1)}
                 className="w-8 h-8 rounded-full bg-black/70 border border-white/10 text-white flex items-center justify-center text-sm font-mono hover:border-[--accent] hover:text-[--accent] transition-all"
@@ -405,57 +405,6 @@ export default function App() {
             >
               <h3 className="section-title text-3xl md:text-4xl font-black tracking-tight">PROYECTOS</h3>
             </motion.div>
-
-            {/* Controles de Flechas */}
-            <div className="flex gap-3">
-              <motion.button 
-                whileHover="hover"
-                whileTap="tap"
-                onClick={() => navigateSlider(-1)} 
-                className="group relative p-4 border border-white/10 rounded-xl bg-[--bg-card] overflow-hidden flex items-center justify-center min-w-12.5 min-h-12.5"
-                variants={{
-                  hover: { 
-                    borderColor: "var(--accent)",
-                    boxShadow: "0 0 20px rgba(0, 229, 255, 0.15)"
-                  },
-                  tap: { scale: 0.92 }
-                }}
-                transition={{ type: "spring", stiffness: 400, damping: 18 }}
-              >
-                <motion.div className="absolute inset-0 bg-linear-to-tr from-[--accent]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <motion.span 
-                  className="block text-sm font-mono relative z-10 text-white/50 group-hover:text-white"
-                  variants={{ hover: { x: -2 } }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                >
-                  ←
-                </motion.span>
-              </motion.button>
-
-              <motion.button 
-                whileHover="hover"
-                whileTap="tap"
-                onClick={() => navigateSlider(1)} 
-                className="group relative p-4 border border-white/10 rounded-xl bg-[--bg-card] overflow-hidden flex items-center justify-center min-w-12.5 min-h-12.5"
-                variants={{
-                  hover: { 
-                    borderColor: "var(--accent)",
-                    boxShadow: "0 0 20px rgba(0, 229, 255, 0.15)"
-                  },
-                  tap: { scale: 0.92 }
-                }}
-                transition={{ type: "spring", stiffness: 400, damping: 18 }}
-              >
-                <motion.div className="absolute inset-0 bg-linear-to-tl from-[--accent]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <motion.span 
-                  className="block text-sm font-mono relative z-10 text-white/50 group-hover:text-white"
-                  variants={{ hover: { x: 2 } }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                >
-                  →
-                </motion.span>
-              </motion.button>
-            </div>
           </div>
 
           {/* Caja del Slider */}
@@ -560,19 +509,80 @@ export default function App() {
             </AnimatePresence>
           </div>
 
-          {/* Indicador Lineal de Progreso */}
-          <div className="flex gap-2 justify-start mt-6">
-            {projects.map((_, idx) => (
-              <div key={idx} className="relative w-12 h-1 bg-white/5 rounded-full overflow-hidden">
-                {idx === activeIndex && (
-                  <motion.div 
-                    layoutId="activeBar" 
-                    className="absolute inset-0 bg-[--accent]"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
+          {/* Controles y progreso (Ubicados debajo de la Card) */}
+          <div className="mt-6 w-full">
+            
+            <div className="flex items-center justify-between sm:center gap-4 w-full">
+              
+              {/* Botón Flecha Izquierda */}
+              <motion.button 
+                whileHover="hover"
+                whileTap="tap"
+                onClick={() => navigateSlider(-1)} 
+                className="group relative p-3 md:p-4 border border-white/10 rounded-xl bg-[--bg-card] overflow-hidden flex items-center justify-center min-w-11 min-h-11 md:min-w-12.5 md:min-h-12.5 select-none"
+                variants={{
+                  hover: { 
+                    borderColor: "var(--accent)",
+                    boxShadow: "0 0 20px rgba(0, 229, 255, 0.15)"
+                  },
+                  tap: { scale: 0.92 }
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 18 }}
+              >
+                <motion.div className="absolute inset-0 bg-linear-to-tr from-[--accent]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <motion.span 
+                  className="block text-sm font-mono relative z-10 text-white/50 group-hover:text-white"
+                  variants={{ hover: { x: -2 } }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                >
+                  ←
+                </motion.span>
+              </motion.button>
+
+              {/* Barras de Progreso Centrales (Flexibles y adaptables) */}
+              <div className="flex gap-1.5 md:gap-2 items-center justify-center flex-1 sm:flex-initial max-w-[60%] sm:max-w-none overflow-hidden">
+                {projects.map((_, idx) => (
+                  <div 
+                    key={idx} 
+                    className="relative h-1 bg-white/5 rounded-full overflow-hidden w-8 sm:w-12 shrink-0"
+                  >
+                    {idx === activeIndex && (
+                      <motion.div 
+                        layoutId="activeBar" 
+                        className="absolute inset-0 bg-[--accent]"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
+
+              {/* Botón Flecha Derecha */}
+              <motion.button 
+                whileHover="hover"
+                whileTap="tap"
+                onClick={() => navigateSlider(1)} 
+                className="group relative p-3 md:p-4 border border-white/10 rounded-xl bg-[--bg-card] overflow-hidden flex items-center justify-center min-w-11 min-h-11 md:min-w-12.5 md:min-h-12.5 select-none"
+                variants={{
+                  hover: { 
+                    borderColor: "var(--accent)",
+                    boxShadow: "0 0 20px rgba(0, 229, 255, 0.15)"
+                  },
+                  tap: { scale: 0.92 }
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 18 }}
+              >
+                <motion.div className="absolute inset-0 bg-linear-to-tl from-[--accent]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <motion.span 
+                  className="block text-sm font-mono relative z-10 text-white/50 group-hover:text-white"
+                  variants={{ hover: { x: 2 } }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                >
+                  →
+                </motion.span>
+              </motion.button>
+
+            </div>
           </div>
         </motion.section>
 
