@@ -253,7 +253,7 @@ export default function App() {
 
         {listImgs.length > 1 && (
           <>
-            <div className="absolute inset-y-0 left-3 flex items-center z-20 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
+            <div className="absolute inset-y-0 left-3 flex items-center z-20 opacity-50 group-hover/slider:opacity-100 transition-opacity duration-300">
               <button 
                 onClick={(e) => navigateInner(e, -1)}
                 className="w-8 h-8 rounded-full bg-black/70 border border-white/10 text-white flex items-center justify-center text-sm font-mono hover:border-[--accent] hover:text-[--accent] transition-all"
@@ -509,7 +509,7 @@ export default function App() {
             </AnimatePresence>
           </div>
 
-          {/* Controles y progreso (Ubicados debajo de la Card) */}
+          {/* Controles y progreso */}
           <div className="mt-6 w-full">
             
             <div className="flex items-center justify-between sm:center gap-4 w-full">
@@ -519,7 +519,7 @@ export default function App() {
                 whileHover="hover"
                 whileTap="tap"
                 onClick={() => navigateSlider(-1)} 
-                className="group relative p-3 md:p-4 border border-white/0 rounded-xl bg-[--bg-card] overflow-hidden flex items-center justify-center min-w-11 min-h-11 md:min-w-12.5 md:min-h-12.5 select-none"
+                className="group relative p-3 md:p-4 border border-white/10 rounded-xl bg-[--bg-card] overflow-hidden flex items-center justify-center min-w-11 min-h-11 md:min-w-12.5 md:min-h-12.5 select-none"
                 variants={{
                   hover: { 
                     borderColor: "var(--accent)",
@@ -529,10 +529,10 @@ export default function App() {
                 }}
                 transition={{ type: "spring", stiffness: 400, damping: 18 }}
               >
-                <motion.div className="absolute inset-0 bg-linear-to-tr from-[--accent]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <motion.div className="absolute inset-0 bg-linear-to-tl from-[--accent]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <motion.span 
                   className="block text-sm font-mono relative z-10 text-white/50 group-hover:text-white"
-                  variants={{ hover: { x: -2 } }}
+                  variants={{ hover: { x: -1.5 } }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                 >
                   ←
@@ -544,7 +544,7 @@ export default function App() {
                 {projects.map((_, idx) => (
                   <div 
                     key={idx} 
-                    className="relative h-1 bg-white/5 rounded-full overflow-hidden w-8 sm:w-12 shrink-0"
+                    className="relative h-1 bg-white/15 rounded-full overflow-hidden w-8 sm:w-12 shrink-0"
                   >
                     {idx === activeIndex && (
                       <motion.div 
@@ -575,7 +575,7 @@ export default function App() {
                 <motion.div className="absolute inset-0 bg-linear-to-tl from-[--accent]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <motion.span 
                   className="block text-sm font-mono relative z-10 text-white/50 group-hover:text-white"
-                  variants={{ hover: { x: 2 } }}
+                  variants={{ hover: { x: 1.5 } }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                 >
                   →
