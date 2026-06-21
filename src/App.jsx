@@ -95,7 +95,7 @@ export default function App() {
     {
       id: "01",
       tag: "Desarrollo Web & Big Data",
-      title: "IberiaDriveInsights",
+      title: "Iberia Drive Insights",
       desc: "Plataforma de tasación de vehículos mediante un modelo de Machine Learning.",
       tech: ["React", "FastAPI", "ML", "Pandas", "Selenium"],
       imagenes: [
@@ -484,12 +484,12 @@ export default function App() {
                 <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-between z-10 bg-transparent">
                   <div>
                     <div className="flex justify-between items-start mb-4">
-                      <span className="font-mono text-5xl font-black text-[#00b8cc] select-none">
+                      <span className="font-mono text-2xl md:text-5xl font-black text-[#00b8cc] select-none">
                         {currentProject.id}
                       </span>
                     </div>
 
-                    <h4 className="text-3xl font-black mb-3 tracking-tight text-white uppercase font-mono">
+                    <h4 className="text-2xl md:text-3xl font-black mb-3 tracking-tight text-white uppercase font-mono">
                       {currentProject.title}
                     </h4>
                     <p className="text-[--text-dim] text-sm md:text-base leading-relaxed font-light mb-8">
