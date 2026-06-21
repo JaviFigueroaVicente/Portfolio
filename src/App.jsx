@@ -519,7 +519,7 @@ export default function App() {
                 whileHover="hover"
                 whileTap="tap"
                 onClick={() => navigateSlider(-1)} 
-                className="group relative p-3 md:p-4 border border-white/10 rounded-xl bg-[--bg-card] overflow-hidden flex items-center justify-center min-w-11 min-h-11 md:min-w-12.5 md:min-h-12.5 select-none"
+                className="group relative p-3 md:p-4 border border-white/0 rounded-xl bg-[--bg-card] overflow-hidden flex items-center justify-center min-w-11 min-h-11 md:min-w-12.5 md:min-h-12.5 select-none"
                 variants={{
                   hover: { 
                     borderColor: "var(--accent)",
