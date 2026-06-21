@@ -190,6 +190,7 @@ export default function App() {
             initial="enter"
             animate="center"
             exit="exit"
+            loading="lazy"
             transition={{ type: "spring", stiffness: 350, damping: 30 }}
             className="absolute inset-0 w-full h-full object-cover opacity-50 hover:opacity-70 transition-opacity duration-500"
           />
@@ -286,10 +287,8 @@ export default function App() {
             whileTap={{ scale: 0.98 }}
             className="w-64 h-80 bg-linear-to-br from-slate-900 via-neutral-950 to-black rounded-2xl border-2 border-white/10 shrink-0 overflow-hidden relative group shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col justify-between p-6"
           >
-            {/* Efecto de Rejilla Tecnológica Estética */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-position-[16px_16px]" />
             
-            {/* Escáner láser táctico */}
             <div className="absolute inset-x-0 h-0.5 bg-linear-to-r from-transparent via-[--accent]/30 to-transparent top-0 animate-[scan_3s_ease-in-out_infinite]" style={{
               animationName: 'scan',
               keyframes: `
@@ -428,6 +427,7 @@ export default function App() {
                     imgs={currentProject.imagenes || currentProject.imagen} 
                     tag={currentProject.tag} 
                     title={currentProject.title} 
+                    max={currentProject.title} 
                   />
                 </div>
 
@@ -497,7 +497,7 @@ export default function App() {
                         animate={{ x: ['-100%', '100%'] }}
                         transition={{ 
                           repeat: Infinity, 
-                          duration: 2.2, 
+                          duration: 2.2,
                           ease: "easeInOut",
                           repeatDelay: 0.5 
                         }}
