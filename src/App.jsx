@@ -325,7 +325,7 @@ export default function App() {
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-6 pt-40">
+      <main className="max-w-7xl mx-auto px-6 pt-10 md:pt-40">
         {/* Hero Section */}
         <section className="flex flex-col md:flex-row gap-16 items-center py-20 mb-20 md:mb-40">
           <motion.div 
