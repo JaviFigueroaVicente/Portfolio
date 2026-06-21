@@ -95,9 +95,9 @@ export default function App() {
     {
       id: "01",
       tag: "Desarrollo Web & Big Data",
-      title: "Iberia Drive Insights",
+      title: "IberiaDriveInsights",
       desc: "Plataforma de tasación de vehículos mediante un modelo de Machine Learning.",
-      tech: ["React", "FastAPI", "XBoost", "Scikit-Learn", "Pandas", "Selenium", "SQL"],
+      tech: ["React", "FastAPI", "ML", "Pandas", "Selenium"],
       imagenes: [
         "/proyectos/iberia/home.jpg",
         "/proyectos/iberia/predict.jpg",
@@ -158,7 +158,7 @@ export default function App() {
       y: 0, 
       scale: 1,
       transition: { 
-        duration: 0.5, 
+        duration: 0.6, 
         ease: [0.16, 1, 0.3, 1] 
       } 
     }
@@ -327,7 +327,7 @@ export default function App() {
 
       <main className="max-w-7xl mx-auto px-6 pt-40">
         {/* Hero Section */}
-        <section className="flex flex-col md:flex-row gap-16 items-center py-20 mb-40">
+        <section className="flex flex-col md:flex-row gap-16 items-center py-20 mb-20 md:mb-40">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95, rotate: -3 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -364,7 +364,7 @@ export default function App() {
                 initial={{ y: 60, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="block uppercase tracking-tight text-white"
+                className="block uppercase tracking-tight text-white text-3xl md:text-6xl font-bold"
               >
                 Especialista en IA & Big Data
               </motion.span> 
@@ -372,7 +372,7 @@ export default function App() {
                 initial={{ y: 40, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-                className="text-[--accent] font-mono font-light text-4xl md:text-5xl block mt-2"
+                className="text-[--accent] font-mono font-light text-2xl md:text-4xl block mt-2"
               >
                 & Técnico Superior en Desarrollo de Aplicaciones Web
               </motion.span>
@@ -551,7 +551,7 @@ export default function App() {
                           repeatDelay: 0.5 
                         }}
                       />
-                      <span>DEMO WEB</span>
+                      <span>WEB</span>
                       <img src={typeof opennew !== 'undefined' ? opennew : ''} alt="Open New" />
                     </motion.a>
                   </div>
@@ -803,6 +803,9 @@ export default function App() {
               <motion.div 
                 key={group.category} 
                 variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
                 className="recessed-surface p-8 group border border-white/5 hover:border-[--accent] transition-all duration-500 will-change-transform"
               >
                 <div className="flex items-center gap-3 mb-8">
@@ -816,6 +819,8 @@ export default function App() {
                   {group.techs.map((tech) => (
                     <motion.div 
                       key={tech}
+                      whileHover={{ scale: 1.03, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
                       transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
                       className="flex items-center gap-2.5 px-3 py-2 bg-white/1 border border-white/5 rounded-lg hover:bg-[--accent]/5 hover:border-[--accent] transition-all duration-200 group/item cursor-default will-change-transform"
                     >
