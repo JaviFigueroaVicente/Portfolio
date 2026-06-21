@@ -99,11 +99,11 @@ export default function App() {
       desc: "Plataforma de tasación de vehículos mediante un modelo de Machine Learning.",
       tech: ["React", "FastAPI", "XBoost", "Scikit-Learn", "Pandas", "Selenium", "SQL"],
       imagenes: [
-        "../src/assets/img/proyectos/iberia/home.jpg",
-        "../src/assets/img/proyectos/iberia/predict.jpg",
-        "../src/assets/img/proyectos/iberia/historial.jpg",
-        "../src/assets/img/proyectos/iberia/importancia.jpg",
-        "../src/assets/img/proyectos/iberia/error.jpg"
+        "/proyectos/iberia/home.jpg",
+        "/proyectos/iberia/predict.jpg",
+        "/proyectos/iberia/historial.jpg",
+        "/proyectos/iberia/importancia.jpg",
+        "/proyectos/iberia/error.jpg"
         
       ],
       github: "https://github.com/JaviFigueroaVicente/IberiaDriveInsights.git",
@@ -116,11 +116,11 @@ export default function App() {
       desc: "Plataforma de formularios interactivos, creación de preguntas y respuestas online.",
       tech: ["VUE.JS", "LARAVEL", "SQL"],
       imagenes: [
-        "../src/assets/img/proyectos/quizoot/home.jpg",
-        "../src/assets/img/proyectos/quizoot/forms.jpg",
-        "../src/assets/img/proyectos/quizoot/detalles.jpg",
-        "../src/assets/img/proyectos/quizoot/respuesta.jpg",
-        "../src/assets/img/proyectos/quizoot/record.jpg"
+        "/proyectos/quizoot/home.jpg",
+        "/proyectos/quizoot/forms.jpg",
+        "/proyectos/quizoot/detalles.jpg",
+        "/proyectos/quizoot/respuesta.jpg",
+        "/proyectos/quizoot/record.jpg"
       ],
       github: "https://github.com/JaviFigueroaVicente/Quizoot.git",
       urlWeb: "https://quizoot.es"
@@ -167,6 +167,8 @@ export default function App() {
     const [[innerPage, innerDirection], setInnerPage] = useState([0, 0]);
     const currentImgIndex = Math.abs(innerPage % listImgs.length);
 
+    const [isImgLoading, setIsImgLoading] = useState(true);
+    
     const navigateInner = (e, dir) => {
       e.stopPropagation();
       setInnerPage([innerPage + dir, dir]);
@@ -180,6 +182,23 @@ export default function App() {
 
     return (
       <div className="relative w-full h-full overflow-hidden bg-neutral-950 group/slider">
+        <AnimatePresence>
+          {isImgLoading && (
+            <motion.div 
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 z-20 flex items-center justify-center bg-neutral-950"
+            >
+              <motion.div 
+                className="w-8 h-8 border-2 border-[--accent]/20 border-t-[--accent] rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <AnimatePresence initial={false} custom={innerDirection} mode="popLayout">
           <motion.img 
             key={innerPage}
@@ -191,6 +210,10 @@ export default function App() {
             animate="center"
             exit="exit"
             loading="lazy"
+            // Al dispararse el evento nativo de carga completa, ocultamos quirúrgicamente el Spinner
+            onLoad={() => setIsImgLoading(false)}
+            // Si cambia la imagen del carrusel, reactivamos de inmediato el estado de carga
+            onLoadStart={() => setIsImgLoading(true)}
             transition={{ type: "spring", stiffness: 350, damping: 30 }}
             className="absolute inset-0 w-full h-full object-cover opacity-50 hover:opacity-70 transition-opacity duration-500"
           />
@@ -472,7 +495,8 @@ export default function App() {
                       whileTap={{ scale: 0.98 }}
                       className="flex items-center gap-2 px-5 py-3 rounded-lg bg-white/2 border border-white/10 text-white font-mono text-xs hover:border-[--accent] hover:bg-white/5 transition-all duration-300"
                     >
-                      <img src={github} className="w-4 h-4" alt="" />
+                      {/* Nota: Asegura la correcta asignación de la variable global o importación 'github' para la imagen */}
+                      <img src={typeof github !== 'undefined' ? github : ''} className="w-4 h-4" alt="" />
                       REPOSITORIO
                     </motion.a>
 
@@ -503,7 +527,8 @@ export default function App() {
                         }}
                       />
                       <span>DEMO WEB</span>
-                      <img src={opennew} alt="Open New" />
+                      {/* Nota: Asegura la correcta asignación de la variable global o importación 'opennew' para la imagen */}
+                      <img src={typeof opennew !== 'undefined' ? opennew : ''} alt="Open New" />
                     </motion.a>
                   </div>
                 </div>
