@@ -40,8 +40,8 @@ import linkedin from "./assets/logos/linkedin.png"
 import dowload from "./assets/icons/download.svg"
 import downloadHover from "./assets/icons/download_hover.svg"
 
-import FotoPerfil from "./assets/img/foto_carnet/foto_carnet.jpg"
-import CV from "./assets/cv/cv-25-5-26.pdf"
+import fotoPerfil from "./assets/img/foto_carnet/foto_carnet.jpg"
+import cv from "./assets/cv/cv-25-5-26.pdf"
 
 export default function App() {
   useEffect(() => {
@@ -303,7 +303,7 @@ export default function App() {
             
             <div className="absolute inset-0 bg-[--accent]/5 group-hover:bg-transparent transition-colors duration-500">
               <img 
-                src={FotoPerfil} 
+                src={fotoPerfil} 
                 alt="Javier Figueroa" 
                 className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 contrast-125"
               />
@@ -977,7 +977,7 @@ export default function App() {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 transition={{ type: "spring", stiffness: 400, damping: 15 }} 
-                href={CV}
+                href={cv}
                 download="CV_Javier_Figueroa_Vicente.pdf"
                 className="btn-download"
                 variants={{
