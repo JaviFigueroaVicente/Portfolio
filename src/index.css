@@ -3,11 +3,11 @@
 :root {
   /* --- PALETA DE COLORES OPTIMIZADA (TECH REFINADO) --- */
   /* Base ultra-oscura con matiz azulado para mayor profundidad y contraste */
-  --bg-base: #06080c;
+  --bg-base: #111722;
   /* Superficie de tarjeta con contraste calibrado para legibilidad */
-  --bg-card: #0b111a;
+  --bg-card: #172130;
   /* Variante aún más profunda para gradientes de fondo */
-  --bg-obsidian: #030508;
+  --bg-obsidian: #0f1522;
   
   /* Textos de alta definición para cumplir normativas de accesibilidad */
   --text-main: #f8fafc;
