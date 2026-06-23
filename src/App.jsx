@@ -40,7 +40,7 @@ import linkedin from "./assets/logos/linkedin.png"
 import dowload from "./assets/icons/download.svg"
 import downloadHover from "./assets/icons/download_hover.svg"
 
-import fotoPerfil from "./assets/img/foto_carnet/foto_carnet.jpg"
+import fotoPerfil from "./assets/img/foto_carnet/foto_carnet.png"
 import cv from "./assets/cv/cv-25-5-26.pdf"
 
 export default function App() {
@@ -386,176 +386,8 @@ export default function App() {
             </motion.p>
           </div>
         </section>
-
-        {/* Formación Académica */}
-        <section id="formacion" className="mb-40">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-20"
-          >
-            <div className="flex flex-col">
-              <h2 className="section-title text-3xl md:text-4xl font-black tracking-tight">FORMACIÓN ACADÉMICA</h2>
-            </div>
-            <div className="h-px grow bg-linear-to-r from-white/10 to-transparent"></div>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="flex"
-            >
-              <div className="recessed-surface p-8 border-l border-white/10 bg-white/1 w-full flex flex-col justify-between group hover:border-[--accent] transition-all duration-500">
-                <div>
-                  <div className="flex justify-between items-center mb-6">
-                    <div className="flex items-center gap-2">
-                      <span className="label-caps font-mono text-[9px] text-[--accent] tracking-[0.25em] font-bold">2025-2026</span>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-black mb-2 group-hover:text-[--accent] transition-colors font-mono uppercase tracking-tight text-white">
-                    CE Inteligencia Artificial y Big Data
-                  </h3>
-                  <p className="text-[--text-dim] font-mono text-xs mb-6 opacity-60">Institut Bernat el Ferrer</p>
-      
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {['Machine Learning', 'Deep Learning', 'Big Data', 'Python'].map(skill => (
-                    <span key={skill} className="text-[9px] font-mono border border-white/5 px-2.5 py-1 rounded bg-white/5 text-[--text-dim] opacity-50 group-hover:opacity-100 transition-opacity">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            <div className="flex flex-col gap-4">
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-                className="flex-1 recessed-surface p-8 border-l border-white/10 hover:border-[--accent] transition-all group flex flex-col justify-center"
-              >
-                <div>
-                  <span className="label-caps text-[10px] opacity-40 mb-2 block">2023 — 2025</span>
-                  <h4 className="text-xl font-bold font-mono group-hover:text-white transition-colors text-white/90">CFGS Desarrollo de Aplicaciones Web</h4>
-                  <p className="text-xs text-[--text-dim] font-mono mt-1 opacity-60 mb-6">Institut Bernat el Ferrer</p>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['Desarrollo Web', 'Base de Datos'].map(skill => (
-                    <span key={skill} className="text-[9px] font-mono border border-white/5 px-2.5 py-1 rounded bg-white/5 text-[--text-dim] opacity-50 group-hover:opacity-100 transition-opacity">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-                className="flex-1 recessed-surface p-8 border-l border-white/10 hover:border-[--accent] transition-all group opacity-50 hover:opacity-100 flex flex-col justify-center"
-              >
-                <span className="label-caps text-[10px] opacity-40 mb-2 block">2020 — 2022</span>
-                <h4 className="text-xl font-bold font-mono group-hover:text-white transition-colors text-white/90">CFGS Gestión de Ventas y Espacios Comerciales</h4>
-                <p className="text-xs text-[--text-dim] font-mono mt-1 opacity-60">Institut Joan Brossa</p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
         
-        {/* Stack Tecnológico */}
-        <motion.section 
-          id="stack" 
-          className="mb-40"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.15 
-              }
-            }
-          }}
-        >
-          <motion.div 
-            variants={{
-              hidden: { opacity: 0, x: -15 },
-              visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
-            }}
-            className="flex items-center gap-4 mb-16"
-          >
-            <h2 className="section-title text-2xl md:text-3xl font-black tracking-tight">STACK TECNOLÓGICO</h2>
-            <motion.div 
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
-              className="h-px grow bg-linear-to-r from-white/10 to-transparent origin-left"
-            />
-          </motion.div>
-
-          {/* Grid de Contenedores */}
-          <motion.div 
-            variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            {stack.map((group) => (
-              <motion.div 
-                key={group.category} 
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                className="recessed-surface p-8 group border border-white/5 hover:border-[--accent] transition-all duration-500 will-change-transform"
-              >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-1.5 h-3.5 bg-[--accent] rounded-full shadow-[0_0_8px_var(--accent)]"></div>
-                  <h4 className="label-caps text-xs tracking-[0.2em] opacity-60 group-hover:opacity-100 transition-opacity font-bold">
-                    {group.category}
-                  </h4>
-                </div>
-
-                <div className="flex flex-wrap gap-3">
-                  {group.techs.map((tech) => (
-                    <motion.div 
-                      key={tech}
-                      whileHover={{ scale: 1.03, y: -2 }}
-                      whileTap={{ scale: 0.98 }}
-                      transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
-                      className="flex items-center gap-2.5 px-3 py-2 bg-white/1 border border-white/5 rounded-lg hover:bg-[--accent]/5 hover:border-[--accent] transition-all duration-200 group/item cursor-default will-change-transform"
-                    >
-                      {techLogos[tech] ? (
-                        <img 
-                          src={techLogos[tech]} 
-                          alt={tech}
-                          className="w-4 h-4 object-contain grayscale-0 md:grayscale md:group-hover/item:grayscale-0 transition-all duration-200" 
-                        />
-                      ) : (
-                        <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
-                      )}
-                      <span className="font-mono text-[11px] text-[--text-dim] group-hover/item:text-white transition-colors duration-200">
-                        {tech}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
-        
+             
 
         {/* Sección de Proyectos */}
         <motion.section 
@@ -756,6 +588,174 @@ export default function App() {
             </div>
           </div>
         </motion.section>
+
+        {/* Stack Tecnológico */}
+        <motion.section 
+          id="stack" 
+          className="mb-40"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.15 
+              }
+            }
+          }}
+        >
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, x: -15 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+            }}
+            className="flex items-center gap-4 mb-16"
+          >
+            <h2 className="section-title text-2xl md:text-3xl font-black tracking-tight">STACK TECNOLÓGICO</h2>
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+              className="h-px grow bg-linear-to-r from-white/10 to-transparent origin-left"
+            />
+          </motion.div>
+
+          {/* Grid de Contenedores */}
+          <motion.div 
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            {stack.map((group) => (
+              <motion.div 
+                key={group.category} 
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="recessed-surface p-8 group border border-white/5 hover:border-[--accent] transition-all duration-500 will-change-transform"
+              >
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-1.5 h-3.5 bg-[--accent] rounded-full shadow-[0_0_8px_var(--accent)]"></div>
+                  <h4 className="label-caps text-xs tracking-[0.2em] opacity-60 group-hover:opacity-100 transition-opacity font-bold">
+                    {group.category}
+                  </h4>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  {group.techs.map((tech) => (
+                    <motion.div 
+                      key={tech}
+                      whileHover={{ scale: 1.03, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
+                      className="flex items-center gap-2.5 px-3 py-2 bg-white/1 border border-white/5 rounded-lg hover:bg-[--accent]/5 hover:border-[--accent] transition-all duration-200 group/item cursor-default will-change-transform"
+                    >
+                      {techLogos[tech] ? (
+                        <img 
+                          src={techLogos[tech]} 
+                          alt={tech}
+                          className="w-4 h-4 object-contain grayscale-0 md:grayscale md:group-hover/item:grayscale-0 transition-all duration-200" 
+                        />
+                      ) : (
+                        <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+                      )}
+                      <span className="font-mono text-[11px] text-[--text-dim] group-hover/item:text-white transition-colors duration-200">
+                        {tech}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.section>
+       
+        {/* Formación Académica */}
+        <section id="formacion" className="mb-40">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-20"
+          >
+            <div className="flex flex-col">
+              <h2 className="section-title text-3xl md:text-4xl font-black tracking-tight">FORMACIÓN ACADÉMICA</h2>
+            </div>
+            <div className="h-px grow bg-linear-to-r from-white/10 to-transparent"></div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="flex"
+            >
+              <div className="recessed-surface p-8 border-l border-white/10 bg-white/1 w-full flex flex-col justify-between group hover:border-[--accent] transition-all duration-500">
+                <div>
+                  <div className="flex justify-between items-center mb-6">
+                    <div className="flex items-center gap-2">
+                      <span className="label-caps font-mono text-[9px] text-[--accent] tracking-[0.25em] font-bold">2025-2026</span>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-2xl font-black mb-2 group-hover:text-[--accent] transition-colors font-mono uppercase tracking-tight text-white">
+                    CE Inteligencia Artificial y Big Data
+                  </h3>
+                  <p className="text-[--text-dim] font-mono text-xs mb-6 opacity-60">Institut Bernat el Ferrer</p>
+      
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {['Machine Learning', 'Deep Learning', 'Big Data', 'Python'].map(skill => (
+                    <span key={skill} className="text-[9px] font-mono border border-white/5 px-2.5 py-1 rounded bg-white/5 text-[--text-dim] opacity-50 group-hover:opacity-100 transition-opacity">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="flex flex-col gap-4">
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                className="flex-1 recessed-surface p-8 border-l border-white/10 hover:border-[--accent] transition-all group flex flex-col justify-center"
+              >
+                <div>
+                  <span className="label-caps text-[10px] opacity-40 mb-2 block">2023 — 2025</span>
+                  <h4 className="text-xl font-bold font-mono group-hover:text-white transition-colors text-white/90">CFGS Desarrollo de Aplicaciones Web</h4>
+                  <p className="text-xs text-[--text-dim] font-mono mt-1 opacity-60 mb-6">Institut Bernat el Ferrer</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['Desarrollo Web', 'Base de Datos'].map(skill => (
+                    <span key={skill} className="text-[9px] font-mono border border-white/5 px-2.5 py-1 rounded bg-white/5 text-[--text-dim] opacity-50 group-hover:opacity-100 transition-opacity">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                className="flex-1 recessed-surface p-8 border-l border-white/10 hover:border-[--accent] transition-all group opacity-50 hover:opacity-100 flex flex-col justify-center"
+              >
+                <span className="label-caps text-[10px] opacity-40 mb-2 block">2020 — 2022</span>
+                <h4 className="text-xl font-bold font-mono group-hover:text-white transition-colors text-white/90">CFGS Gestión de Ventas y Espacios Comerciales</h4>
+                <p className="text-xs text-[--text-dim] font-mono mt-1 opacity-60">Institut Joan Brossa</p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
 
         {/* Experiencia Profesional */}
