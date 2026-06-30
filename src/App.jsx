@@ -37,11 +37,12 @@ import mail from "./assets/icons/mail.svg"
 import call from "./assets/icons/call.svg"
 import location from "./assets/icons/location.svg"
 import linkedin from "./assets/logos/linkedin.png"
-import dowload from "./assets/icons/download.svg"
+import download from "./assets/icons/download.svg"
 import downloadHover from "./assets/icons/download_hover.svg"
+import downloadWhite from "./assets/icons/download_white.svg"
 
 import fotoPerfil from "./assets/img/foto_carnet/foto_carnet.png"
-import cv from "./assets/cv/cv-25-5-26.pdf"
+import cv from "./assets/cv/cv-30-6-26.pdf"
 
 export default function App() {
   useEffect(() => {
@@ -353,12 +354,12 @@ export default function App() {
               <img 
                 src={fotoPerfil} 
                 alt="Javier Figueroa" 
-                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 contrast-125"
+                className="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-500 contrast-125"
               />
             </div>
           </motion.div>
                     
-          <div>
+          <div className="flex-1">
             <h1 className="text-5xl md:text-6xl font-black tracking-tighter mb-6 overflow-hidden leading-[1.05]">
               <motion.span
                 initial={{ y: 60, opacity: 0 }}
@@ -377,13 +378,72 @@ export default function App() {
                 & Técnico Superior en Desarrollo de Aplicaciones Web
               </motion.span>
             </h1>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="max-w-xl text-[--text-dim] text-base md:text-lg font-light leading-relaxed"
+
+            {/* <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="max-w-xl text-[--text-dim] text-base md:text-lg font-light leading-relaxed mb-8"
             >
-            </motion.p>
+              Desarrollo soluciones robustas e inteligentes integrando analítica avanzada de datos, arquitecturas de IA y aplicaciones web de alto rendimiento. Enfoque analítico orientado a resolver problemas técnicos complejos y transformar datos en impacto real.
+            </motion.p> */}
+            
+            {/* Datos de contacto rápidos + Descarga CV */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="flex flex-wrap gap-3 items-center pt-10"
+            >
+              <a 
+                href="mailto:javierfigueroa969@gmail.com" 
+                className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm text-[--text-dim] hover:text-[--accent] hover:bg-[--accent]/5 transition-all font-mono"
+              >
+                <img src={mail} alt="" width={16} height={16} />
+                <span>javierfigueroa969@gmail.com</span>
+              </a>
+
+              <a 
+                href="tel:+34630108179" 
+                className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm text-[--text-dim] hover:text-[--accent] hover:bg-[--accent]/5 transition-all font-mono"
+              >
+                <img src={call} alt="" width={16} height={16} />
+                <span>+34 630 10 81 79</span>
+              </a>
+
+              <a 
+                href="https://linkedin.com/in/javierfigueroavicente" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm text-[--text-dim] hover:text-[--accent] hover:bg-[--accent]/5 transition-all font-mono"
+              >
+                <img src={linkedin} alt="" width={16} height={16} />
+                <span>javierfigueroavicente</span>
+              </a>
+
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm text-[--text-dim] font-mono">
+                <img src={location} alt="" width={16} height={16} />
+                <span>Barcelona, ES</span>
+              </div>
+
+              {/* Botón de CV rápido */}
+              <motion.a
+                whileTap={{ scale: 0.98 }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                href={cv}
+                download="CV_Javier_Figueroa_Vicente.pdf"
+                className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm text-[--text-dim] hover:text-[--accent] hover:bg-[--accent]/5 transition-all font-mono"
+              >
+                <img 
+                  src={downloadWhite} 
+                  alt="" 
+                  width={14} 
+                  height={14} 
+                />
+                <span>Descargar CV</span>
+              </motion.a>
+            </motion.div>
           </div>
         </section>
         
@@ -703,8 +763,8 @@ export default function App() {
                     </div>
                   </div>
                   
-                  <h3 className="text-2xl font-black mb-2 group-hover:text-[--accent] transition-colors font-mono uppercase tracking-tight text-white">
-                    CE Inteligencia Artificial y Big Data
+                  <h3 className="text-2xl font-black mb-2 group-hover:text-[--accent] transition-colors font-mono tracking-tight text-white">
+                    Máster en Inteligencia Artificial y Big Data
                   </h3>
                   <p className="text-[--text-dim] font-mono text-xs mb-6 opacity-60">Institut Bernat el Ferrer</p>
       
@@ -1038,7 +1098,7 @@ export default function App() {
                 transition={{ type: "spring", stiffness: 400, damping: 15 }} 
                 href={cv}
                 download="CV_Javier_Figueroa_Vicente.pdf"
-                className="btn-download"
+                className="btn-download text-xs md:text-sm"
                 variants={{
                   hover: { 
                     color: "#00252a" 
@@ -1047,7 +1107,7 @@ export default function App() {
                 }}
               >
                   <motion.img 
-                    src={isHovered ? downloadHover : dowload} 
+                    src={isHovered ? downloadHover : download} 
                     alt="Descargar" 
                     width={30} 
                     height={30} 
