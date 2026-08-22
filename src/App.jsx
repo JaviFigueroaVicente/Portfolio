@@ -102,6 +102,7 @@ export default function App() {
       desc: "Proyecto de Data Engineering de un DataWarehouse con análisis funcional y técnico y ELT mediante DBT.",
       tech: ["DBT"],
       imagenes: [
+        "/proyectos/placeholder.png",
       ],
       github: "https://github.com/JaviFigueroaVicente/AnalysisAndDBT.git"
     },
