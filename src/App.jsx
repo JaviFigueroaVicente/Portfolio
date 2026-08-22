@@ -40,6 +40,8 @@ import linkedin from "./assets/logos/linkedin.png"
 import download from "./assets/icons/download.svg"
 import downloadHover from "./assets/icons/download_hover.svg"
 import downloadWhite from "./assets/icons/download_white.svg"
+import langchain from "./assets/logos/langchain.webp"
+import redis from "./assets/logos/redis.webp"
 
 import fotoPerfil from "./assets/img/foto_carnet/foto_carnet.png"
 import cv from "./assets/cv/cv-30-6-26.pdf"
@@ -70,17 +72,17 @@ export default function App() {
     "React": react, "Vue.js": vue, "JavaScript": js, "TailwindCSS": tailwind, 
     "HTML5": html, "CSS3": css,
     "SQL": sql, "PostgreSQL": postgres, "MongoDB": mongodb, "Git": git, 
-    "Docker": docker, "WordPress": wordpress, "AWS": aws, "PySpark": pyspark, "FastAPI": fastapi
+    "Docker": docker, "WordPress": wordpress, "AWS": aws, "PySpark": pyspark, "FastAPI": fastapi, "LangChain": langchain, "Redis": redis
   };
   
   const stack = [
     {
       category: "BIG DATA & IA",
-      techs: ["Pandas", "Numpy", "Tensorflow", "Matplotlib", "Seaborn", "Power BI", "Scikit-Learn", "dbt", "PySpark", "AWS"]
+      techs: ["Pandas", "Numpy", "Tensorflow", "Matplotlib", "Seaborn", "Power BI", "Scikit-Learn", "dbt", "PySpark", "AWS", "LangChain"]
     },
     {
       category: "BACKEND & LOGIC",
-      techs: ["FastAPI", "Python","PHP",  "Java", "Laravel", "Django", "Node.js", "C#"]
+      techs: ["FastAPI", "Python", "PHP",  "Java", "Laravel", "Django", "Node.js", "C#", "Redis"]
     },
     {
       category: "FRONTEND & UI",
@@ -95,14 +97,24 @@ export default function App() {
   const projects = [
     {
       id: "01",
+      tag: "Big Data",
+      title: "Análisis funcional y técnico y ELT mediante DBT ",
+      desc: "Proyecto de Data Engineering de un DataWarehouse con análisis funcional y técnico y ELT mediante DBT.",
+      tech: ["DBT"],
+      imagenes: [
+      ],
+      github: "https://github.com/JaviFigueroaVicente/AnalysisAndDBT.git"
+    },
+    {
+      id: "02",
       tag: "Desarrollo Web & Big Data",
       title: "Iberia Drive Insights",
-      desc: "Plataforma de tasación de vehículos mediante un modelo de Machine Learning.",
-      tech: ["React", "FastAPI", "ML", "Pandas", "Selenium"],
+      desc: "Plataforma de tasación de vehículos mediante un modelo de Machine Learning y fotoperitación mediante agentes de intelgencia artifical.",
+      tech: ["React", "FastAPI", "ML", "Pandas", "Selenium", "LangChain", "Redis"],
       imagenes: [
         "/proyectos/iberia/home.jpg",
         "/proyectos/iberia/predict.jpg",
-        "/proyectos/iberia/historial.jpg",
+        "/proyectos/iberia/historial.png",
         "/proyectos/iberia/importancia.jpg",
         "/proyectos/iberia/error.jpg"
         
@@ -111,7 +123,30 @@ export default function App() {
       urlWeb: "https://iberia-drive-insights.vercel.app"
     },
     {
-      id: "02",
+      id: "03",
+      tag: "Big Data",
+      title: "ETL y Dashboard interactivo de Bicicleta de Decathlon",
+      desc: "Proyecto ETL mediante Web Scrapping, uso de MongoDB como Base de Datos y generación de un Dashboard con Power BI.",
+      tech: ["PowerBI", "Selenium", "MongoDB"],
+      imagenes: [
+        "/proyectos/mongodb/dashboard.png"
+      ],
+      github: "https://github.com/JaviFigueroaVicente/ScrapAndMongoDB.git"
+    },
+    {
+      id: "04",
+      tag: "Big Data",
+      title: "Dashboard interactivo de IPRIX y IPRIM ",
+      desc: "Análisis completo de datos de importación y exportación de materiales en España mediante Power BI.",
+      tech: ["PowerBI"],
+      imagenes: [
+        "/proyectos/iprix/dashboard.png",
+        "/proyectos/iprix/tabla_relaciones.png"
+      ],
+      github: "https://github.com/JaviFigueroaVicente/IndicesProductosIndustriales.git"
+    },
+    {
+      id: "05",
       tag: "Desarrollo Web",
       title: "Quizoot",
       desc: "Plataforma de formularios interactivos, creación de preguntas y respuestas online.",
